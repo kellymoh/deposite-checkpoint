@@ -1,14 +1,10 @@
 
-import Navbar from "@/components/Navbar";
-import TradingDeposit from "@/components/TradingDeposit";
-import Footer from "@/components/Footer";
+import DepositPage from "@/components/DepositPage";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-      <TradingDeposit />
-      <Footer />
+      <DepositPage />
     </div>
   );
 };
