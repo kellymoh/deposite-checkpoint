@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { CreditCard, Check, CircleAlert, Smartphone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +15,6 @@ const DepositPage = () => {
   const [cardCvc, setCardCvc] = useState("");
   
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Only allow numbers and decimal point
     const value = e.target.value.replace(/[^0-9.]/g, "");
     setAmount(value);
   };
@@ -59,7 +57,6 @@ const DepositPage = () => {
   
   return (
     <div className="min-h-screen py-10 px-4 bg-gradient-to-br from-background to-background/80 relative overflow-hidden">
-      {/* Decorative elements */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
       
@@ -102,7 +99,6 @@ const DepositPage = () => {
               </div>
             </div>
             
-            {/* Step 1: Amount */}
             {step === 1 && (
               <div className="space-y-8">
                 <div>
@@ -148,7 +144,6 @@ const DepositPage = () => {
               </div>
             )}
             
-            {/* Step 2: Payment Method */}
             {step === 2 && (
               <div className="space-y-6">
                 <h3 className="text-xl font-bold text-white text-center mb-6">Select Payment Method</h3>
@@ -166,7 +161,11 @@ const DepositPage = () => {
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                         paymentMethod === 'mpesa' ? 'bg-[#F2FF44]/20' : 'bg-white/5'
                       }`}>
-                        <Smartphone className={`w-5 h-5 ${paymentMethod === 'mpesa' ? 'text-[#F2FF44]' : 'text-white/60'}`} />
+                        <img 
+                          src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" 
+                          alt="M-Pesa" 
+                          className="w-8 h-8 object-contain"
+                        />
                       </div>
                       <div>
                         <p className="text-white font-medium">M-Pesa</p>
@@ -188,7 +187,11 @@ const DepositPage = () => {
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                         paymentMethod === 'airtel' ? 'bg-[#F2FF44]/20' : 'bg-white/5'
                       }`}>
-                        <Smartphone className={`w-5 h-5 ${paymentMethod === 'airtel' ? 'text-[#F2FF44]' : 'text-white/60'}`} />
+                        <img 
+                          src="https://upload.wikimedia.org/wikipedia/commons/1/18/Airtel_logo.svg" 
+                          alt="Airtel Money" 
+                          className="w-8 h-8 object-contain"
+                        />
                       </div>
                       <div>
                         <p className="text-white font-medium">Airtel Money</p>
@@ -210,7 +213,11 @@ const DepositPage = () => {
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                         paymentMethod === 'card' ? 'bg-[#F2FF44]/20' : 'bg-white/5'
                       }`}>
-                        <CreditCard className={`w-5 h-5 ${paymentMethod === 'card' ? 'text-[#F2FF44]' : 'text-white/60'}`} />
+                        <img 
+                          src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" 
+                          alt="Visa / Mastercard" 
+                          className="w-8 h-8 object-contain"
+                        />
                       </div>
                       <div>
                         <p className="text-white font-medium">Visa / Mastercard</p>
@@ -221,7 +228,6 @@ const DepositPage = () => {
                   </div>
                 </div>
                 
-                {/* Mobile Money Form Fields */}
                 {(paymentMethod === 'mpesa' || paymentMethod === 'airtel') && (
                   <div className="mt-6 space-y-4">
                     <div>
@@ -238,7 +244,6 @@ const DepositPage = () => {
                   </div>
                 )}
                 
-                {/* Card Form Fields */}
                 {paymentMethod === 'card' && (
                   <div className="mt-6 space-y-4">
                     <div>
@@ -300,7 +305,6 @@ const DepositPage = () => {
               </div>
             )}
             
-            {/* Step 3: Confirmation */}
             {step === 3 && (
               <div className="space-y-8 text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-[#F2FF44]/20 to-[#F2FF44]/10 rounded-full flex items-center justify-center mx-auto backdrop-blur-sm border border-[#F2FF44]/30">
